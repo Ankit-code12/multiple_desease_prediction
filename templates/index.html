@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Multiple Disease Prediction</title>
+    <link rel="stylesheet" href="/static/style.css">
+    <script>
+        function showForm() {
+            let disease = document.getElementById("disease").value;
+            document.querySelectorAll(".form-box").forEach(f => f.style.display="none");
+            if(disease) document.getElementById(disease).style.display="block";
+        }
+    </script>
+</head>
+<body>
+
+<h1>🩺 Multiple Disease Prediction System</h1>
+
+<label>Select Disease:</label>
+<select id="disease" onchange="showForm()">
+    <option value="">-- Select --</option>
+    <option value="diabetes">Diabetes</option>
+    <option value="heart">Heart Disease</option>
+    <option value="kidney">Kidney Disease</option>
+</select>
+
+<!-- ================= DIABETES ================= -->
+<form method="POST" action="/predict" id="diabetes" class="form-box">
+<input type="hidden" name="disease" value="diabetes">
+<h2>Diabetes Inputs</h2>
+
+Pregnancies (0–15): <input name="pregnancies" required><br>
+Glucose (70–200): <input name="glucose" required><br>
+BP (40–120): <input name="bp" required><br>
+Skin (0–99): <input name="skin" required><br>
+Insulin (0–846): <input name="insulin" required><br>
+BMI (10–60): <input name="bmi" required><br>
+DPF (0–2.5): <input name="dpf" required><br>
+Age (1–100): <input name="age" required><br>
+
+<button>Predict Diabetes</button>
+</form>
+
+<!-- ================= HEART ================= -->
+<form method="POST" action="/predict" id="heart" class="form-box">
+<input type="hidden" name="disease" value="heart">
+<h2>Heart Disease Inputs</h2>
+
+Age (20–90): <input name="age" required><br>
+Sex (1=Male,0=Female): <input name="sex"><br>
+CP (0–3): <input name="cp"><br>
+Rest BP (90–200): <input name="trestbps"><br>
+Chol (100–600): <input name="chol"><br>
+FBS (0/1): <input name="fbs"><br>
+ECG (0–2): <input name="restecg"><br>
+Max HR (70–220): <input name="thalach"><br>
+Ex Angina (0/1): <input name="exang"><br>
+Oldpeak (0–6): <input name="oldpeak"><br>
+Slope (0–2): <input name="slope"><br>
+CA (0–4): <input name="ca"><br>
+Thal (0–3): <input name="thal"><br>
+
+<button>Predict Heart Disease</button>
+</form>
+
+<!-- ================= KIDNEY ================= -->
+<form method="POST" action="/predict" id="kidney" class="form-box">
+<input type="hidden" name="disease" value="kidney">
+<h2>Kidney Disease Inputs</h2>
+
+Age (1–90): <input name="age"><br>
+BP (50–180): <input name="bp"><br>
+SG (1.005–1.025): <input name="sg"><br>
+Albumin (0–5): <input name="al"><br>
+Sugar (0–5): <input name="su"><br>
+RBC (0/1): <input name="rbc"><br>
+Pus Cell (0/1): <input name="pc"><br>
+PCC (0/1): <input name="pcc"><br>
+Bacteria (0/1): <input name="ba"><br>
+BGR (70–500): <input name="bgr"><br>
+Urea (10–300): <input name="bu"><br>
+Creatinine (0.4–15): <input name="sc"><br>
+Sodium (100–180): <input name="sod"><br>
+Potassium (2–7): <input name="pot"><br>
+Hemoglobin (3–17): <input name="hemo"><br>
+PCV (20–55): <input name="pcv"><br>
+WBC (3000–25000): <input name="wc"><br>
+RBC Count (2–8): <input name="rc"><br>
+HTN (0/1): <input name="htn"><br>
+DM (0/1): <input name="dm"><br>
+CAD (0/1): <input name="cad"><br>
+Appetite (0=Poor,1=Good): <input name="appet"><br>
+Edema (0/1): <input name="pe"><br>
+Anemia (0/1): <input name="ane"><br>
+
+<button>Predict Kidney Disease</button>
+</form>
+
+</body>
+</html>
+
